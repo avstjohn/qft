@@ -1,0 +1,190 @@
+
+\noindent In the last lecture we found plane wave solutions to the classical Dirac equation. Now, we will guess a (quadractic) quantum theory that begins with the plane wave solutions of an effective classical theory in its large scale, low energy, high decoherence limit. The classical theory we make our guess has the Lagrangian density 
+
+\begin{equation}
+\mathcal{L} = \bar{\psi} (i \slashed{\partial} - m \cdot \mathbb{I} ) \psi = \bar{\psi} (i \gamma^\mu \partial_\mu - m \cdot \mathbb{I}) \psi
+\end{equation}
+
+\noindent As a side note, the space of quantum theories is an abstract category constrained by unitary transformations (morphisms) and Hilbert space (objects). \\
+
+\noindent First, a demonstration of how \textit{not} to quantize the Dirac field.
+
+\subsection*{Bosonic approach to quantization (the wrong way)}
+
+\noindent Suppose that we guess that the quantum Dirac field is a theory of many bosons, such that the equal-time commutation relation imposed on the field operators (note the hats), with spinor indices $a$, $b = \{1,2,3,4\}$, is
+
+\begin{equation}
+[ \hat{\psi}_a (x), \hat{\psi}_b (y) ] = \delta^{(3)} (x-y) \delta_{ab}.
+\end{equation} 
+
+\noindent Use plane wave basis to expand the field operators and define creation/annihilation operators to act on momentum states, building a Fock space with basis
+
+\begin{equation}
+u^s(p) e^{i p\cdot x} \,\,\,\,\,\,\,\, v^s (p) e^{-i p \cdot x}.
+\end{equation}
+
+\noindent The field operators are then Fourier transforms into coordinate space
+
+\begin{equation}
+\hat{\psi} (x) = \int \frac{d^3 p}{(2 \pi)^3} \,\, \frac{1}{\sqrt{2 \omega_p}} e^{i p \cdot x} \sum_{s=1}^{2} \left( \hat{a}_p^s u^s(p) + (\hat{b}_{-p}^s)\dagger v^s(-p) \right).
+\end{equation}
+
+\noindent Then the creation/annihilation operators are defined and they obey the commutation relations
+
+\begin{equation}
+[\hat{a}^r_p, (\hat{b}^s_q)^\dagger ] = [\hat{b}_p^r, (\hat{b}^s_q)^\dagger ] = (2\pi)^3 \delta^{(3)}(p-q) \delta^{rs}.
+\end{equation}
+
+\noindent And the quantized Hamiltonian is (\textbf{Exercise})
+
+\begin{equation}
+\hat{H} = \int \frac{d^3 p}{(2 \pi)^3} \,\,  \sum_{s=1}^2 \omega_p \left( (\hat{a}_p^s)^\dagger \hat{a}_p^s - (\hat{b}_p^s)^\dagger \hat{b}_p^s \right) + \infty \, const.
+\end{equation}
+
+\noindent This Hamiltonian creates infinite bosons tor each infinitely lower energies and is not bounded below, and thus has no ground state; it is unstable.
+
+\subsection*{Fermionic approach to quantization (the right way)}
+
+\noindent To correctly quantize the Dirac field, we impose equal-time \textit{anticommutation} relations
+
+\begin{align}
+\{ \hat{\psi_a} (x), \hat{\psi}_b^\dagger (y) \} &= \delta^{(3)} (x-y) \delta_{ab} \\
+\{ \hat{\psi_a} (x), \hat{\psi}_b (y) \} &= 0 \\
+\{ \hat{\psi_a}^\dagger (x), \hat{\psi}_b^\dagger (y) \} &= 0 
+\end{align}
+
+\noindent Again expand the field operators over momentum space via the Fourier transform
+
+\begin{align}
+\hat{\psi} (x) &= \int \frac{d^3 p}{(2 \pi)^3} \,\, \frac{1}{\sqrt{2 \omega_p}} \sum_{s=1}^2 \left( \hat{a}_p^s u^s(p) e^{-i p \cdot x} + (\hat{b}_{p}^s)^\dagger v^s(p) e^{i p \cdot x} \right) \\
+\hat{\bar{\psi}} (x) &= \int \frac{d^3 p}{(2 \pi)^3} \,\, \frac{1}{\sqrt{2 \omega_p}} \sum_{s=1}^2 \left( \hat{a}_p^s \bar{u}^s(p) e^{i p \cdot x} + (\hat{b}_{p}^s)^\dagger \bar{v}^s(p) e^{-i p \cdot x} \right).
+\end{align}
+
+\noindent So, the anticommutation relations then require that
+
+\begin{equation}
+\{\hat{a}_p^r, (\hat{a}_q^s)^\dagger \} =  \{\hat{b}_p^r, (\hat{b}_q^s)^\dagger \}  = (2 \pi)^3 \delta^{(3)} (p-q) \delta^{rs}.
+\end{equation}
+
+\noindent And all other brackets are zero. \\
+
+\noindent The quantized Hamiltonian is
+
+\begin{equation}
+\hat{H} = \int \frac{d^3 p}{(2 \pi)^3} \,\,  \sum_{s=1}^2 \omega_p \left( (\hat{a}_p^s)^\dagger \hat{a}_p^s + (\hat{b}_p^s)^\dagger \hat{b}_p^s \right) + \infty \, const.
+\end{equation}
+
+\noindent Which is almost the same Hamiltonian as the bosonic approach, but note the additional minus sign in the acreation/annihilation operator quantity. This Hamiltonian is a positive operator, such that $\hat{H} \ge 0$ for all possible states, with a unique ground state $\ket{\Omega}$, such that
+
+\begin{equation}
+\hat{a}_p^s \ket{\Omega} = \hat{b}_p^s \ket{\Omega} = 0
+\end{equation}
+
+\noindent Therefore, this is the correct quantization of the Dirac field! \\
+
+\noindent So far we have a Hilbert space and a time translation generator, (Hamiltonian) but to call this a \textit{relativistic quantum field theory} we need all 10 operators to be Lorentz invariant: spatial translation (linear momentum), rotation (angular momentum), and boost operators. \\
+
+\subsection*{Momentum operators of the Dirac field}
+
+\noindent The momentum operators, the generators of spatial translation, for the Dirac field are
+
+\begin{align}
+\hat{p}_j &= \int d^3x \,\, \hat{\psi}^\dagger(x) (-i \nabla_j) \hat{\psi} (x) \\
+&= \int \frac{d^3 p}{(2 \pi)^3} \,\, \sum_{s=1}^2 \left( p_j \left( (\hat{a}_p^s)^\dagger \hat{a}_p^s + (\hat{b}_p^s)^\dagger \hat{b}_p^s  \right) \right)
+\end{align}
+
+\noindent Note that the operators and values $\hat{p}_j$, $\nabla_j$, and $p_j$ are 3-vectors, such that, for example, $\hat{p}_j = (\hat{p}_1, \hat{p}_2, \hat{p}_3) = (\hat{p}_x, \hat{p}_y, \hat{p}_z)$, and the $j$ subscript denotes a single particle. The first line's integrand in the momentum density gotten by Noether's theorem. \\
+\noindent (\textbf{Exercise}) Check that the required commutation relations hold, such that $[\hat{p}_j,\hat{H}]=0$. \\
+
+\noindent Now, the operators $(\hat{a}_p^s)^\dagger$ and $(\hat{b}_p^s)^\dagger$ create particles of energy $\omega_p$ and momentum $p_j$, suppressing the $j$ subscript on the subscripted $p$, since (\textbf{Exercises})
+
+\begin{align}
+\hat{H} (\hat{a}_p^s)^\dagger \ket{\Omega} &= \omega_p (\hat{a}_p^s)^\dagger \ket{\Omega}  \\
+\hat{p}_j (\hat{a}_p^s)^\dagger \ket{\Omega} &= p_j (\hat{a}_p^s)^\dagger \ket{\Omega} 
+\end{align}
+
+\noindent The sytematic, algorithmic way of obtaining the full unitary representation of the Poincar\'e group is to get the generators of the Lie algebra of the Lorentz group from Noether's theorem, put hats on them, and check the required commutation relations. \\
+
+\noindent A less systematic way of obtaining the representation is done by introducing the ``normalized'' single-particle states
+
+\begin{equation}
+\ket{p_j,s} = \sqrt{2 \omega_p} (\hat{a}_p^s)^\dagger \ket{\Omega}
+\end{equation}
+
+\noindent With the ``normalization'' condition
+
+\begin{equation}
+\braket{p_j,r | q_k, s} = 2 \omega_p (2 \pi)^3 \delta^{(3)} (p_j-q_k) \delta^{rs}.
+\end{equation}
+
+\noindent Then the unitary representation of the Lorentz group is defined via
+
+\begin{align}
+U(\Lambda) \hat{a}_p^s U^\dagger(\Lambda) &= \sqrt{ \frac{\omega_{\Lambda p}}{\omega_p}} \hat{a}_{\Lambda p}^s \\
+U(\Lambda) \hat{b}_p^s U^\dagger(\Lambda) &= \sqrt{ \frac{\omega_{\Lambda p}}{\omega_p}} \hat{b}_{\Lambda p}^s.
+\end{align}
+
+\noindent Note that since we are dealing on \textit{equal-time} and the Lorentz transformation $\Lambda$ acts on 4-vectors, the subscripted product $\Lambda p$ means to just the three spatial components from the transformation $\Lambda \cdot (\omega_p, p_x, p_y, p_z)$. \\
+
+\noindent Now this gives us the full unitary representation of the Poincar\'e group since the Fock space is generated by products of the creation/annihilation operators on the vacuum state and the action is just extended to all of Fock space. \\
+
+\noindent So we know how the Lorentz transformation acts on creation/annihilation operators. How does the Lorentz transformation act on the quantized Dirac (spinor) field operators?
+
+\begin{align*}
+U(\Lambda) \hat{\psi}(x)&  U^\dagger (\Lambda) \\
+&= U(\Lambda) \int \frac{d^3 p}{(2 \pi)^3} \,\, \frac{1}{\sqrt{2 \omega_p}} \sum_{s=1}^2 \left( \hat{a}_p^s u^s(p) e^{-i p \cdot x} + (\hat{b}_{p}^s)^\dagger v^s(p) e^{i p \cdot x} \right) U^\dagger (\Lambda) \\
+&= \int \frac{d^3 p}{(2 \pi)^3} \,\, \frac{1}{2 \omega_p} \sqrt{2 \omega_p} \sum_{s=1}^2 \left( \sqrt{\frac{\omega_{\Lambda p}}{\omega_p}} \left( \hat{a}_{\Lambda p}^s u^s (p) e^{-ip \cdot x} + (\hat{b}_{p}^s)^\dagger v^s(p) e^{i p \cdot x} \right) \right).
+\end{align*}
+
+\noindent Recall that the quantity $\int \frac{d^3 p}{(2 \pi)^3} \frac{1}{2 \omega_p}$ is a Lorentz invariant measure, such that we can change basis and freely apply Lorentz transformations to the variable of intergration; let $\widetilde{p} = \Lambda p$. Then (\textbf{Exercise})
+
+\begin{align*}
+U(\Lambda) \hat{\psi}(x)&  U^\dagger (\Lambda) \\
+&= \int \frac{d^3 \widetilde{p}}{(2 \pi)^3} \,\, \frac{1}{2 \omega_{\widetilde{p}}} \sqrt{2 \omega_{\widetilde{p}}} \sum_{s=1}^2 \left( \hat{a}_{\Lambda \widetilde{p}}^s u^s (\Lambda^{-1} \widetilde{p}) e^{-i \widetilde{p} \cdot \Lambda^{-1} x} + (\hat{b}_{\widetilde{p}}^s)^\dagger v^s(\Lambda^{-1} \widetilde{p}) e^{i \widetilde{p} \cdot \Lambda^{-1} x} \right) \\
+&= \Lambda_{1/2} \hat{\psi} (\Lambda^{-1} x).
+\end{align*}
+
+\noindent So, we have taken an ad hoc definition of the creation/annihilation operators to construct the quantum field operators, and they Lorentz-transform according to the above; very nice!
+
+\subsection*{Angular momentum operators of the Dirac field}
+
+\noindent The angular momentum operators, the generators of rotation, for the Dirac field classically transform by infinitesimal rotations
+
+\begin{equation}
+\psi (x) \rightarrow \Lambda_{1/2} \psi (\Lambda^{-1} x)
+\end{equation}
+
+\noindent Where the infinitesimal rotation $\Lambda_{1/2}$ is
+
+\begin{equation}
+\Lambda_{1/2} \approx \mathbb{I} - \frac{i}{2} \omega_{\mu \nu} S^{\mu \nu} = \mathbb{I} - \frac{i}{2} \theta \left( \begin{array}{cc} \sigma^3 & 0 \\ 0 & \sigma^3 \end{array} \right) = \mathbb{I} - \frac{i}{2} \theta \Sigma^3
+\end{equation}
+
+\noindent The infinitesimal rotation of a spinor is calculated by first applying Taylor's theorem to first order
+
+\begin{align}
+\delta \psi (x) &= \psi' (x) - \psi (x) \\
+&= (\mathbb{I} - \frac{i}{2} \theta \Sigma^3) \psi(t, x+\theta y, y - \theta x, z) - \psi(x) \\
+&= -\theta (x \partial y - y \partial x + \frac{i}{2} \Sigma^3 ) \psi(x) \\
+&\equiv \theta \Delta \psi(x)
+\end{align}
+
+\noindent Now apply Noether's theorem, recalling that the time component of the conserved current due to rotation is 
+
+\begin{equation}
+j^0 = \frac{\partial \mathcal{L}}{\partial ( \partial_0 \psi)} \Delta \psi = -i \bar{\psi} \gamma^0 (x \partial y - y \partial x + \frac{i}{2} \Sigma^3 ) \psi .
+\end{equation}
+
+\noindent By the ``inverse'' Noether's theorem, integrate the current over coordinate space to get the generators of rotations, the angular momentum operators, where we get an orbital contribution (wedge or corss product) and a spin contribution ($\Sigma$-matrix), with $k = x, y, z$,
+
+\begin{equation}
+J_k = \int d^3 x \,\, \psi^\dagger (x) \left( \left[ x \wedge (-i \nabla) \right]_k + \frac{1}{2} \Sigma^k \right) \psi (x) .
+\end{equation}
+
+\noindent Then the quantum generator of rotations gets a hat, and we have included all three directions of rotation, such that $\hat{J}$ is a vector of three operators
+
+\begin{equation}
+\hat{J} = \int d^3 x \,\, \hat{\psi}^\dagger (x) \left( x \wedge (-i \nabla) + \frac{1}{2} \Sigma \right) \hat{\psi} (x) .
+\end{equation}
+
+\noindent Note that the angular momentum are not easy to write in terms of the creation/annihilation operators.

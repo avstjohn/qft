@@ -1,0 +1,195 @@
+\noindent Suppose that $\mathscr{L}(\phi_a, \partial_\mu \phi_a)$ is the Lagrangian density for some set of fields $\{ \phi_a(x) \}_{a=1}^N$. Recall that the Lagrangian density is a compact, encrypted of writing the equations of motion of a system, and the Euler-Lagrange equations and the principle of least action are used to unpack/decrypt the equations of motion. \\
+
+\noindent Now consider an infinitesimal continuous transformation of the fields
+\begin{equation}
+\phi_a '(x) = \phi_a(x) + X_a(\phi_a)
+\end{equation}
+
+\noindent This produces an \textit{infinitesimal symmetry} in the equations of motion when they are left invariant under the principle of least action
+\begin{align}
+\mathscr{L} &\rightarrow \mathscr{L}(\phi_a', \partial_\mu \phi_a') = \mathscr{L}(\phi_a, \partial_\mu \phi_a) + \partial_\mu F^\mu \\
+\& \,\,\,\, \mathcal{S} [ \phi_a ] &= \int d^4 x \mathscr{L} = \int d^4 x ( \mathscr{L} + \partial_\mu F^\mu )
+\end{align}
+
+\subsection*{Noether's Theorem}
+
+\noindent Every continuous symmetry of a Lagrangian implies the existence of a conserved current $j^\mu(x)$. \\
+
+\noindent \textbf{Proof:} Let $X_a[\phi_a] = \delta \phi_a$ be an arbitrary, infinitesimal change in each field, such that the infinitesimal change in the Lagrangian density is 
+
+\begin{align}
+\delta \mathscr{L}(\phi_a, \partial_\mu \phi_a) &= \mathscr{L}(\phi_a+\delta \phi_a, \partial_\mu(\phi_a + \delta \phi_a)) - \mathscr{L}(\phi_a, \delta_\mu \phi_a) \\
+&\cong \frac{\partial \mathscr{L}}{\partial \phi_a} \delta \phi_a + \frac{\partial \mathscr{L}}{\partial (\partial_\mu \phi_a)} \delta(\partial_\mu \phi_a) \\
+&= \left( \frac{\partial \mathscr{L}}{\partial \phi_a} - \partial_\mu \left( \frac{\partial \mathscr{L}}{\partial (\partial_\mu \phi_a)} \right) \right) \delta \phi_a + \partial_\mu \left( \frac{\partial \mathscr{L}}{\partial (\partial_\mu \phi_a)} \delta \phi_a \right) \\
+\delta \mathscr{L}(\phi_a, \partial_\mu \phi_a) &= \partial_\mu \left( \frac{\partial \mathscr{L}}{\partial (\partial_\mu \phi_a)} \delta \phi_a \right)
+\end{align}
+
+\noindent Where in line $(14)$, we have kept only first order terms $\mathcal{O} (\delta \phi_a)$, and have used the Taylor expansion and added zero to get to line $(15)$. To obtain line $(16)$, note that the first term in line $(15)$ is equal to zero, since $\phi_a(x)$ obey the Euler-Lagrange equations. \\
+
+\noindent As defined above, for an infinitesimal transformation, call $\delta \phi_a = X_a[\phi_a]$  and  for an infinitesimal symmetry, call $\delta \mathscr{L} = \partial_\mu F^\mu$.
+
+\begin{align}
+\partial_\mu F^\mu &= \partial_\mu \left( \frac{\partial \mathscr{L}}{\partial (\partial_\mu \phi_a)} X_a[\phi_a] \right) \\
+0 &= \partial_\mu \left( \frac{\partial \mathscr{L}}{\partial (\partial_\mu \phi_a)} X_a[\phi_a] - F^\mu \right)
+\end{align}
+
+\noindent Call the conserved quantity the conserved current 
+\begin{equation}
+j^\mu (x) = \left( \frac{\partial \mathscr{L}}{\partial (\partial_\mu \phi_a)} X_a[\phi_a] - F^\mu \right).
+\end{equation}
+
+\noindent Now, a conserved current implies the existence of a conserved charge. For any measurable region in our Minkowski space $V \subset \mathcal{M}$, define the integral of the time-like component of the current as
+\begin{equation}
+Q_V = \int_V d^3 x \,\, j^0(x)
+\end{equation}
+
+\noindent Take $V=\mathbb{R}^3$, and assume that the current vanishes at infinity, such that $j \rightarrow 0$ on the boundary $\partial V$, and take the time derivative
+\begin{align}
+\frac{d Q_{\mathbb{R}^3}}{d t} &= \int_{\mathbb{R}^3} d^3x \,\, \partial_0 j^0 (x) \\
+&= - \int_{\mathbb{R}^3} d^3x \,\, \partial_k j^k \\
+&= - \int_{\partial \mathbb{R}^3} j  ds \\
+\frac{d Q_{\mathbb{R}^3}}{d t} &= 0
+\end{align}
+
+\subsection*{Example}
+
+\noindent Consider an active transformation of spacetime coordinates $x^\mu \rightarrow x^\mu - \epsilon^\mu$.
+
+\noindent Then each field transforms as
+\begin{align}
+\phi'_a(x^\mu) &= \phi_a(x^\mu + \epsilon^\mu) \\
+&= \phi_a(x^\mu) + \epsilon^\nu \partial_\nu \phi_a(x^\mu)
+\end{align}
+
+\noindent And the Lagrangian density transforms as, yielding $4 \times 4=16$ equations from summing over $\mu$ and $\nu$ 
+\begin{align}
+\mathscr{L}(x'^\mu) &= \mathscr{L} (x^\mu + \epsilon^\mu) \\
+&= \mathscr{L}(x^\mu) + \epsilon^\nu \partial_\nu \mathscr{L}(x^\mu)
+\end{align}
+
+\noindent Where the infinitesimal field transformation is $X_a[\phi_a] = \epsilon^\nu \partial_\nu \phi_a(x^\mu)$, and the infinitesimal symmetry of the Lagrangian density is $\partial_\mu F^\mu = \epsilon^\mu \partial_\mu \mathscr{L}(x^\mu)$ \\
+
+\noindent Consider the infinitesimal element $\epsilon$ with basis vector entries $[\hat{\nu}]^\mu_{\,\,\,\nu} = \delta^\mu_{\,\,\,\nu}$
+\begin{equation}
+\epsilon^\mu = \epsilon \hat{\nu}^\mu = \epsilon \{ (1,0,0,0), (0,1,0,0), (0,0,1,0), (0,0,0,1) \}.
+\end{equation}
+
+\noindent Apply Noether's theorem to each of the 4 symmetry terms $\epsilon \hat{\nu}^\mu$, yielding 16 total terms that we assign as the elements $T^\mu_{\,\,\,\nu}$ of the \textit{energy-momentum} or \textit{stress-energy tensor}
+\begin{align}
+T^\mu_{\,\,\,\nu} = j^\mu_{\,\,\,\nu} = \frac{\partial \mathscr{L}}{\partial (\partial_\mu \phi_a)} \partial_\nu \phi_a - \delta^\mu_{\,\,\,\nu} \mathscr{L}.
+\end{align}
+
+\noindent Note that each of the $\nu^{th}$ columns of the energy-momentum tensor correspond to one of the four conserved currents and translation in each of the $\nu^{th}$ directions
+\begin{align}
+\partial_\mu T^\mu_{\,\,\,\nu} = 0, \,\,\,\, \forall \,\, \nu.
+\end{align}
+
+\noindent In a \textit{closed} system, the corresponding conserved charges, from the columns (conserved currents) of the energy-momentum tensor, are the total energy and the momentum in each of the three spatial directions
+\begin{align}
+E &= \int d^3x \,\,\, T^{00} \\
+p^j &= \int d^3x \,\,\, T^{0j} .
+\end{align}
+
+\subsubsection*{Example of the Example: Klein-Gordon Field}
+
+Consider the Klein-Gordon Lagrangian density $\mathscr{L} = \frac{1}{2} \partial_\mu \phi \partial^\mu \phi - \frac{1}{2}m^2 \phi^2$. The energy-momentum tensor has elements of the form
+\begin{align}
+T^\mu_{\,\,\,\nu} &= \partial^\mu \phi \partial_\nu \phi - \delta^\mu_{\,\,\,\nu}\mathscr{L} \\
+T^{\mu \nu} &= \eta^{\nu \nu'} T^\mu_{\,\,\,\nu'} = \partial^\mu \phi \partial^\nu \phi - \eta^{\mu \nu} \mathscr{L}.
+\end{align}
+
+\noindent The corresponding conserved charges are
+\begin{align}
+E &= \int d^3x \,\, \mathscr{H}(x) = \int d^3x \,\, (\partial^0 \phi \partial^0 \phi - \frac{1}{2}\partial^0 \phi \partial^0 \phi + \frac{1}{2} m^2 \phi^2) \\
+p^j &= \int d^3x \,\, \dot{\phi} \partial^j \phi .
+\end{align}
+
+\subsubsection*{How To Apply Noether's Theorem}
+\begin{enumerate}
+\item Identify the continuous symmetry. \\
+\item Calculate the change in the Lagrangian density. \\
+\item Calculate the change in each of the fields. \\
+\item Work out the conserved currents and charges.
+\end{enumerate}
+
+\subsection*{Infinitesimal Lorentz Transformations}
+
+\noindent Consider the transformation $x^\mu \rightarrow \Lambda^\mu_{\,\,\,\nu} x^\nu$, where $\Lambda^\mu_{\,\,\,\nu} = \delta^\mu_{\,\,\,\nu} + \omega^\mu_{\,\,\,\nu}$, and $\omega^\mu_{\,\,\,\nu}$ is infinitesimal. Next, recall the following property of the group of Lorentz transformations, restricting the possible values for $\omega$
+\begin{align}
+\eta &= \Lambda^T \eta \Lambda \\
+\eta^{\mu \nu} &= (\delta^\mu_{\,\,\,\sigma} + \omega^\mu_{\,\,\,\sigma} ) (\delta^\nu_{\,\,\,\tau} + \omega^\nu_{\,\,\,\tau} ) \eta^{\sigma \tau} \\
+0 &=_{\mathcal{O}(\omega)} \omega^{\mu \nu} + \omega^{\nu \mu}
+\end{align}
+
+\noindent This is a linear equation in $\omega$, since we have kept only up to first order terms in $\omega$, and tells us that $\omega$ is an \textit{antisymmetric}, infinitesimal generator of Lorentz transformations with six independent variables which define six continuous symmetries and six conserved currents and charges.
+
+\begin{equation}
+\omega = \left(
+\begin{array}{cccc}
+0 & -\alpha & -\beta & -\gamma \\
+\alpha & 0 & -\delta & -\epsilon \\
+\beta & \delta & 0 & -\kappa \\
+\gamma & \epsilon & \kappa & 0 \\
+\end{array}
+\right)
+\end{equation}
+
+\noindent The action of this infinitesimal Lorentz transformation on the fields is 
+\begin{align}
+\phi_a(x) \rightarrow \phi'_a(x) &= \phi_a(\Lambda^{-1}x) \\
+&= \phi_a((\delta-\omega)x) \\
+&= \phi_a(x^\mu - \omega^\mu_{\,\,\,\nu} x^\nu) \\ 
+&=_{\mathcal{O}(\omega)} \phi_a(x) - \omega^\mu_{\,\,\,\nu} x^\nu \partial_\mu \phi_a(x)
+\end{align}
+
+\noindent Showing that the symmetry is defined by the infinitesimals
+\begin{align}
+\delta \phi_a &= -\omega^\mu_{\,\,\,\nu} x^\nu \partial_\mu \phi_a \\
+\& \,\,\,\, \delta \mathscr{L} &= -\omega^\mu_{\,\,\,\nu} x^\nu \partial_\mu \mathscr{L} = -\partial_\mu(\omega^\mu_{\,\,\,\nu} x^\nu \mathscr{L}) \\
+\& \,\,\,\, j^\mu_{\,\,\,\omega} &= \frac{\partial \mathscr{L}}{\partial (\partial_\mu \phi_a)} \omega^\rho_{\,\,\,\nu} x^\nu \partial_\rho \phi_a + \omega^\mu_{\,\,\,\nu} x^\nu \mathscr{L}.
+\end{align}
+
+\noindent (CHECK how $j$ to $\mathcal{J}$) Applying Noether's theorem tells us that the six independent conserved currents $\partial_\mu (\mathcal{J}^\mu)^{\rho \sigma} = 0$, and conserved charges, are of the form
+\begin{align}
+(\mathcal{J}^\mu)^{\rho \sigma} &= x^\rho T^{\mu \sigma} - x^\sigma T^{\mu \rho} \\ 
+Q^{jk} &= \int d^3x \,\, (x^j T^{0k} - x^k T^{0j}) \\
+Q^{0j} &= \int d^3x \,\, (x^0 T^{0j} - x^j T^{00})
+\end{align}
+
+\noindent Call $Q^{jk}$ the generators of rotations, and $Q^{0j}$ the generators of boosts of the Lorentz transformations.
+
+\subsection*{Generators}
+
+\noindent Let $f$ and $g$ be maps from phase space to the real numbers 
+\begin{equation}
+f, \, g: \,\, \mathbb{R}^N \times \mathbb{R}^N \rightarrow \mathbb{R}.
+\end{equation}
+
+\noindent Define the Poisson bracket with the pairs of canonical coordinates $(q_j, p_j)$
+\begin{align}
+\{f,g\} &= \sum_{j=1}^N \left( \frac{\partial f}{\partial q_j} \frac{\partial g}{\partial p_j} - \frac{\partial f}{\partial p_j} \frac{\partial g}{\partial q_j} \right) \\
+\{f, H \} &= \frac{d f}{d t}
+\end{align}
+
+\noindent The field theory version of the Posson bracket is defined with the canonical coordinate pairs $(\phi(x), \pi(x))$
+\begin{align}
+\{F, G\} &= \int d^3x \,\, \left( \frac{\delta F}{\delta \phi(x)} \frac{\delta G}{\delta \pi(x)} - \frac{\delta F}{\delta \pi(x)} \frac{\delta G}{\delta \phi(x)} \right) \\
+\{f, Q^{\rho \sigma}\} &= \frac{\partial f}{\partial s^{\rho \sigma}}
+\end{align}
+
+\noindent Where the Poisson bracket of $f$ and the conserved charges $Q$ generate the corresponding symmetry transformations. Conserved cahrges also obey the Lie algebra obeyed by the Poincar\'e group.
+
+\subsection*{Standard Dogma of Quantization}
+
+\noindent Basically, put hats on things
+
+\begin{itemize}
+\item Function $f$ on phase space $\rightarrow$ linear operator $\hat{f}$ (observable) on Hilbert space \\
+\item Poisson bracket $\{ f,g \} = h \rightarrow$ commutator $[\hat{f}, \hat{g}] = i \hat{h}$ \\
+\item Conserved charge $Q^{\rho \sigma} \rightarrow$ conserved charge operator $\hat{Q}^{\rho \sigma}$
+\end{itemize}
+
+\noindent Where the conserved charge operators generate the Lorentz transformations on Hilbert space
+\begin{equation}
+\frac{d \hat{U}}{d s} = i [\hat{U}, \hat{Q}^{\rho \sigma}] \omega_{\rho \sigma}
+\end{equation}

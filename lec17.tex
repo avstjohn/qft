@@ -1,0 +1,157 @@
+
+\noindent Recall that fermionic degrees of freedom are described by the quantum field operator
+
+\begin{equation}
+\hat{\psi} (x) = \int \frac{d^3 p}{(2 \pi)^3} \,\, \frac{1}{\sqrt{2 \omega_p}} \sum_{s=1}^2 \left( \hat{a}_p^s u^s(p) e^{-i p \cdot x} + (\hat{b}_{p}^s)^\dagger v^s(p) e^{i p \cdot x} \right).
+\end{equation}
+
+\noindent These observable, distribution-valued operators obey the anticommutation relations
+
+\begin{equation}
+\{ \hat{\psi}_a (x), \hat{\psi}_b^\dagger (y) \} = (2 \pi )^3 \delta^{(3)}(x-y) \delta_{ab}.
+\end{equation}
+
+\noindent With this definition, it was postulated that the Hamiltonian is quadratic in the creation-annihilation operators
+
+\begin{equation}
+\hat{H} = \int \frac{d^3 p}{(2 \pi)^3} \,\, \sum_s \omega_p \left( (\hat{a}_p^s)^\dagger \hat{a}_p^s + (\hat{b}_p^s)^\dagger \hat{b}_p^s \right).
+\end{equation}
+
+\noindent This Hamiltonian is a positive operator $\hat{H} \ge 0$ and has a stable vacuum (ground) state $\ket{\Omega}$, such that
+
+\begin{equation}
+\hat{a}_p^s \ket{\Omega} = \hat{b}_p^s \ket{\Omega} = 0.
+\end{equation}
+
+\noindent We postulated the generators of rotations, the angular momentum operators, based on the classical analog and the ``inverse'' Noether's theorem, to be
+
+\begin{equation}
+\hat{J} = \int d^3 x \,\, \hat{\psi}^\dagger (x) \left( x \wedge (-i \nabla) + \frac{1}{2} \Sigma \right) \hat{\psi} (x)
+\end{equation}
+
+\noindent Where we recall that each of the quantities $\hat{J}$, $x$, $\nabla$, and $\Sigma$ consist of an operator for each spatial dimension $x$, $y$, and $z$. \\
+
+\noindent The next part of our job is to (\textbf{Exercise}) check that all of these operators, $\hat{J}$, $\hat{p}$, and boost, the generators of the Poincar\'e group, obey the correct commutation relations and are Lorentz invariant. In other words, they close to form the Lie algebra of the Poincar\'e group. This is considerably difficult since these operators are unwieldy in terms of the creation/annihilation operators $\hat{a}$ and $\hat{b}$. See \textit{Weinberg Volume 1} for calculations of the Lie brackets of the Dirac field. \\
+
+\noindent We instead check that the fundamnetal excitations of the DIrac field have spin-$\frac{1}{2}$, which is a weaker assertion than the commutation and Lorentz invariance of the generators, but of interest, nonetheless.
+
+\subsection*{Spin of a Dirac particle at rest}
+
+\noindent Consider the angular momentum operator acting on one of its eigenstates
+
+\begin{align}
+\hat{J} (\hat{a}_{p=0}^s)^\dagger \ket{\Omega} &= [\hat{J}, (\hat{a}_{0}^s)^\dagger] \ket{\Omega} \\
+&= \int d^3 x \,\, \left[ \hat{\psi}^\dagger (x) \left( x \wedge (-i \nabla) + \frac{1}{2} \Sigma \right) \hat{\psi} (x), (\hat{a}_{0}^s)^\dagger \right] \ket{\Omega} \\
+&= \int d^3 x \,\, \hat{\psi}^\dagger (x) \left( x \wedge (-i \nabla) + \frac{1}{2} \Sigma \right) \{ \hat{\psi} (x), (\hat{a}_0^s)^{\dagger} \} \ket{\Omega} \\
+&= \int d^3 x \,\, \hat{\psi}^\dagger (x) \left( x \wedge (-i \nabla) + \frac{1}{2} \Sigma \right) \frac{1}{\sqrt{2m}} u^s (p=0) \ket{\Omega} \\
+&= \int d^3 x \,\, \hat{\psi}^\dagger (x) \frac{1}{\sqrt{2 m}} \, \frac{1}{2} \Sigma \, u^s(p=0) \ket{\Omega} 
+\end{align}
+
+\noindent Where line 107-108 uses the commutation identity 
+
+\begin{equation}
+[AB, C] = ABC - CAB = A \{B,C\} \iff \{A,C\}=0
+\end{equation}
+
+\noindent Line 108-109 uses the anticommutation identity (\textbf{Exercise})
+
+\begin{equation}
+\{ \hat{\psi} (x), (\hat{a}_{p=0}^s)^\dagger \} = \frac{1}{\sqrt{2 \omega_{p=0}}} u^s (p=0) = \frac{1}{\sqrt{2m}} u^s (p=0)
+\end{equation}
+
+\noindent And Line 109-110 results since the spatial derivative $\nabla$ acts on $u^s (p=0)$ ($4 \times 1$ spinor) which is only the dependent on the time component. \\
+
+\noindent Continuing the calculation with the identity (\textbf{Exercise})
+
+\begin{equation}
+\int d^3 x \,\, \hat{\psi}^\dagger (x) = \frac{1}{\sqrt{2m}} \left( (\hat{a}_0^s)^\dagger (u^s(0))^\dagger + (\hat{b}_0^s)^\dagger (v^s (0))^\dagger \right)
+\end{equation}
+
+\noindent And (\textbf{Exercise})
+
+\begin{equation}
+(v^r (0))^\dagger (\frac{1}{2} \Sigma \, u^s (0)) = 0, \,\, \forall r, \, s
+\end{equation}
+
+\noindent We have
+
+\begin{align}
+\hat{J} (\hat{a}_{p=0}^s)^\dagger \ket{\Omega} &= \int d^3 x \,\, \hat{\psi}^\dagger (x) \frac{1}{\sqrt{2 m}} \, \frac{1}{2} \Sigma \, u^s(p=0) \ket{\Omega} \\
+&= \frac{1}{\sqrt{2m}} \left( (\hat{a}_0^s)^\dagger (u^s(0))^\dagger + (\hat{b}_0^s)^\dagger (v^s (0))^\dagger \right) \frac{1}{\sqrt{2 m}} \, \frac{1}{2} \Sigma \, u^s(p=0) \ket{\Omega} \\
+&= \sum_{r=1}^2 \left( (u^r (0))^\dagger \Sigma^j \frac{1}{2} \frac{1}{\sqrt{2m}} u^s (0) \right) (\hat{a}_0^r)^\dagger \ket{\Omega}
+\end{align}
+
+\noindent Consider the $j=z$ component and the identity $\bar{u}u = 2m$
+
+\begin{align}
+\hat{J}^z (\hat{a}_{p=0}^s)^\dagger \ket{\Omega} &= \sum_{r=1}^2 \left( (\xi^r)^\dagger \frac{1}{2} \sigma^z \xi^s \right) (\hat{a}_0^r )^\dagger \ket{\Omega} \\
+&= (-1)^{s-1} \frac{1}{2} (\hat{a}_0^r )^\dagger \ket{\Omega}
+\end{align}
+
+\noindent Thus, the eigenvalue of the operator $\hat{J}^z$ on its eigenstate $(\hat{a}_{p=0}^s)^\dagger \ket{\Omega}$ is equal to  $(-1)^{s-1} \frac{1}{2}$. \\
+
+\subsection*{Solving the Dirac field}
+
+\noindent Now we direct our attention to solving the Dirac field via propagators and Wick's theorem. This results is the vacuuum expectation values of products of four-dimensional fermionic field operators, denoted by spinor subscript $a,b = 1,2,3,4$ and boldfaced spacetime coordinate $\hat{\psi}_a (\textbf{x})$, $\textbf{x} = (t,x) = (t,x,y,z)$, in terms of Green's functions and Feynman propagators. Note that spatial coordinate and momentum vectors are still denoted by non-boldfaced letters: $x = (x,y,z)$, $p=(p_x,p_y,p_z)$.
+
+\begin{align}
+\bra{\Omega} \hat{\psi}_a (\textbf{x}) \hat{\bar{\psi}}_b (\textbf{y}) \ket{\Omega} &= \int \frac{d^3 p}{(2 \pi)^3} \,\, \frac{1}{2 \omega_p} \sum_{s=1}^2 u^s_a (p) \bar{u}_b^s (p) e^{-i p \cdot (x - y)} \\
+&= (i \slashed{\partial}_{\textbf{x}} + m)_{ab} \int \frac{d^3 p}{(2 \pi)^3} \,\, \frac{1}{2 \omega_p} e^{-i p \cdot (x-y)} \\
+\end{align}
+
+\noindent Similarly (\textbf{Exercise}),
+
+\begin{equation}
+\bra{\Omega} \hat{\bar{\psi}}_b (\textbf{y}) \hat{\psi}_a(\textbf{x}) \ket{\Omega} = (-i \slashed{\partial} _{\textbf{x}}+ m)_{ab} \int \frac{d^3 p}{(2 \pi)^3} \,\, \frac{1}{2 \omega_p} e^{-i p \cdot (y-x)}.
+\end{equation}
+
+\subsubsection*{Spinor field solution to Schroedinger's equation}
+
+\noindent In order to make sense of these vacuum expectation values, consider the equal-time field operator
+
+\begin{equation}
+\hat{\psi} (x) = \int \frac{d^3 p}{(2 \pi)^3} \frac{1}{\sqrt{2 \omega_p}} \sum_{s=1}^2 \left( \hat{a}_p^s u^s (p) e^{-i p \cdot x} + (\hat{b}_p^s)^\dagger v^s (p) e^{i p \cdot x} \right).
+\end{equation}
+
+\noindent Using the following commutation relations
+
+\begin{align}
+[ \hat{H}, \hat{a}_p^s ] &= \omega_p \hat{a}_p^s \\
+[ \hat{H}, (\hat{b}_p^s)^\dagger ] &= - \omega_p (\hat{b}_p^s)^\dagger 
+\end{align}
+
+\noindent Add time dependency to the field operator, such that
+
+\begin{equation}
+\hat{\psi} (\textbf{x}) = \hat{\psi} (t, x) = \int \frac{d^3 p}{(2 \pi)^3} \frac{1}{\sqrt{2 \omega_p}} \sum_{s=1}^2 \left( \hat{a}_p^s u^s (p) e^{-i \textbf{p} \cdot \textbf{x}} + (\hat{b}_p^s)^\dagger v^s (p) e^{i \textbf{p} \cdot \textbf{x}} \right).
+\end{equation}
+
+\noindent Combinations of advanced and retarded Green's functions make up the Feynman propagator. For example, construct the retarded Green's function
+
+\begin{align}
+S^{ret}_{ab} (\textbf{x} - \textbf{y}) &= \theta(x^0 - y^0) \bra{\Omega} \{ \hat{\psi}_a (\textbf{x}), \hat{\bar{\psi}}_b (\textbf{y}) \} \ket{\Omega} \\
+&= (i \slashed{\partial}_{\textbf{x}} + m) D^{ret} ( \textbf{x} - \textbf{y} )
+\end{align}
+
+\noindent Where $\slashed{\partial} \slashed{\partial} = \Box$ is used to relate back to the bosonic propagator $D^{ret}$ (\textbf{Exercise}). \\
+
+\noindent Another way to solve for the fermionic Feynman propagator is to use the Fourier transform (\textbf{Exercise})
+
+\begin{align}
+(i \slashed{\partial}_{\textbf{x}} - m) S^{ret} (\textbf{x}  - \textbf{y}) &= i \delta^{(4)} (\textbf{x}  - \textbf{y})  \cdot \mathbb{I}_{4\times 4} \\
+& \downarrow \\
+\int \frac{d^4 p}{(2\pi)^4} \,\,  (\slashed{p} - m) e^{-i \textbf{p} \cdot (\textbf{x} - \textbf{y})} \tilde{S}^{ret}(\textbf{p}) &= \int \frac{d^4 p}{(2\pi)^4} \,\, e^{i \textbf{p} \cdot (\textbf{x} - \textbf{y})}.
+\end{align}
+
+\noindent Therefore, in Fourier space, the retarded Green's function is
+
+\begin{equation}
+\tilde{S}^{ret}(\textbf{p}) = \frac{i}{\slashed{p} - m} = \frac{i (\slashed{p} + m)}{\slashed{p}^2 - m^2} = \frac{i (\slashed{p} + m)}{p^2 - m^2}.
+\end{equation}
+
+\noindent Making combinations of $\tilde{S}^{ret}(\textbf{p})$ and $\tilde{S}^{adv}(\textbf{p})$, define the Feynman propagator
+
+\begin{align}
+S_F (\textbf{x} - \textbf{y}) &= \bra{\Omega} \mathcal{T} [ \hat{\psi} (\textbf{x}) \hat{\bar{\psi}} (\textbf{y}) ] \ket{\Omega} \\
+&= \lim_{\epsilon \rightarrow 0} \int \frac{d^4 p}{(2\pi)^4} \,\,  \frac{i (\slashed{p} + m)}{p^2 - m^2 + i \epsilon} e^{-i \textbf{p} \cdot ( \textbf{x} - \textbf{y})}
+\end{align}

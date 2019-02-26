@@ -1,0 +1,174 @@
+
+\noindent We've built a relativistic quantum field theory for the (complex) scalar field, or spinless particles, around the Klein-Gordon equation and its Lorentz group invariant, conserved quantities, or the generators of Lorentz transformations (e.g., boosts and rotations), which obey the Lie algebra bracket
+
+\begin{equation}
+[J^{\rho \sigma}, J^{\tau \nu}] = \eta^{\sigma \tau} J^{\rho\nu} - \eta^{\rho \tau} J^{\sigma \nu} + \eta^{\rho\nu} J^{\sigma \tau} - \eta^{\sigma \nu} J^{\rho \tau} .
+\end{equation} 
+
+\noindent We now build a relativistic quantum field theory for fermions, particles of spin-$\frac{1}{2}$, which requires a (complex) vector, or spinor, field to describe the dynamics of the fermionic field. Our strategy is similar to the scalar field case:
+
+\begin{itemize}
+\item Build a relativistic classical field theory.
+\item Quantize the field (by guess).
+\item Check for the (projective) representation of the Lorentz group.
+\end{itemize}
+
+\noindent To begin with building the relativistic classical field theory, given a set of objects obeying the Lie bracket above, we construct a Lagrangian by first constructing the representation of the Lorentz group via $g=e^{-\frac{i}{2} \omega_{\mu\nu}J^{\mu\nu}}$, where $\omega_{\mu\nu}$ are the Lorentz boost parameters, and then calculating Lagrangian densities invariant under the representation $g$.
+
+\subsection*{Dirac's Motivation}
+
+\noindent Dirac desired to factorize the Klein-Gordon equation, and craft an equation of motion linear in spacetime derivatives $\partial_\mu \equiv \partial / \partial x^\mu$, the square root of the Klein-Gordon equation, such that any solution to the Dirac equation is also a solution to the Klein-Gordon equation, but not necessarily vice versa. Linearity in the spacetime derivatives ensures that the associated probability current is positive definite, and the positive energy solutions may be separated from the negative energy solutions inherent to solutions of the Klein-Gordon equation. \\
+
+\noindent The Dirac equation, which we will motivate and derive, reads
+
+\begin{equation}
+(i \gamma^\mu \partial_\mu - m) \psi = 0 .
+\end{equation}
+
+\noindent Where the coefficients of the spacetime derivatives $i\gamma^\mu$ can not be just four scalar quantities, as the vector of coefficients would then define a direction, and the Dirac equation would not be Lorentz invariant. The $\gamma^\mu$ must actually be $4\times 4$ matrices, and the field $\psi$ must be a four-vector. \\
+
+\noindent To recover the Klein-Gordon equation from the Dirac equation, multiply the Dirac equation by $(i \gamma^\nu \partial_\nu + m)$, and compare to the Klein-Gordon equation $(\partial^2 + m^2)\psi=0$ to see that the "squared" Dirac equation becomes the Klein-Gordon equation if the \textit{gamma matrices} obey the following anticommutation relation
+
+\begin{equation}
+\{ \gamma^\mu, \gamma^\nu \} = 2 \eta^{\mu\nu} \cdot \mathbb{I}_{n \times n}.
+\end{equation}
+
+\noindent Where $\eta^{\mu\nu}$ is the Minkowski metric tensor.
+
+\subsection*{Generators of Fermionic Field (Lorentz) Transformations}
+
+\noindent To calculate the generators of the Lorentz transformations of the fermionic field (spin-$\frac{1}{2}$ particles), suppose that we have that set of 4 $n \times n$ matrices $\gamma^\mu$ that satisfy the anticommutation relation $\{ \gamma^\mu, \gamma^\nu \} = 2 \eta^{\mu\nu} \cdot \mathbb{I}_{n \times n}$. Obtain a solution in terms of the gamma matrices that obeys the Lie algebra bracket above
+
+\begin{equation}
+J^{\mu\nu} \to S^{\mu\nu} \equiv \frac{i}{4} [\gamma^\mu, \gamma^\nu].
+\end{equation}
+
+\noindent It is an \textbf{(exercise)} to check that these generators obey Lie algebra bracket above for the Lorentz transformation, and that four dimensions is the minimum of the gamma matrices dimensionality for nontrivial solutions. \\
+
+\noindent The gamma matrices that correctly form the Lorentz group in $(3+1)$d spacetime were crafted by Dirac via the Pauli spin (sigma) matrices
+
+\begin{equation}
+\gamma^0 = \left( \begin{array}{c|c} 0 & \mathbb{I} \\ \hline \mathbb{I} & 0 \end{array} \right) \,\,\,\,\,\,\,\, \gamma^j = \left( \begin{array}{c|c} 0 & \sigma^j \\ \hline -\sigma^j & 0 \end{array} \right) .
+\end{equation}
+
+\noindent Where the Pauli sigma matrices read
+\begin{equation}
+\sigma^1 = \left( \begin{array}{cc} 0 & 1 \\ 1 & 0 \end{array} \right) \,\,\,\, \sigma^2 = \left( \begin{array}{cc} 0 & -i \\ i & 0 \end{array} \right) \,\,\,\, \sigma^3 = \left( \begin{array}{cc} 1 & 0 \\ 0 & -1 \end{array} \right) .
+\end{equation}
+
+\noindent The timelike components $S^{0j}$ yield three ($j=1,2,3$) boost generators of the Lorentz group (of the Lie algebra above)
+\begin{equation}
+S^{0j} = \frac{i}{4} \left[ \gamma^0, \gamma^j \right] = -\frac{i}{2} \left(\begin{array}{cc} \sigma^j & 0 \\ 0 & -\sigma^j \end{array} \right) .
+\end{equation}
+
+\noindent The other six generators from the spacelike components have the form
+\begin{equation}
+S^{jk} = \frac{i}{4} \left[ \gamma^j, \gamma^k \right] = \frac{1}{2} \epsilon^{jkl} \left(\begin{array}{cc} \sigma^l & 0 \\ 0 & -\sigma^l \end{array} \right)
+\end{equation}
+
+\noindent Where the sigma matrices obey the commutation relation: $[\sigma^j,\sigma^k] = 2i\epsilon^{jkl} \sigma^l$. \\
+
+\subsection*{Construction of Gamma Matrices}
+
+\noindent To build the operators that obey the desired anticommutation relation, and also form a \textit{Clifford algebra}, implement the \textbf{Jordan-Wigner transformation}, which maps the Pauli sigma matrices to fermionic creation and annihilation operators.
+
+\subsubsection*{Jordan-Wigner Transformation}
+
+\noindent Suppose that you want to represent operators that obey the (fermionic) anticommutation relation
+\begin{equation}
+\{\mu^a, (\mu^b)^\dagger\} = \delta^{ab}, \,\,\,\, a,b \, = \, 1,2,\dots,n.
+\end{equation}
+
+\noindent Consider the operator $\sigma^+ = \left(\begin{array}{cc} 0 & 0 \\ 1 & 0 \end{array} \right)$, and the construction of successive operators which all operate on the same $n$-dimensional space, permissing the expanse of $n$ direct products with the unit operator
+\begin{align*}
+\mu^1 &= \sigma^+ \otimes \mathbb{I} \otimes \mathbb{I} \otimes \mathbb{I} \otimes \mathbb{I} \otimes \dots \otimes \mathbb{I} \\
+\mu^2 &= \sigma^3 \otimes \sigma^+ \otimes \mathbb{I} \otimes \mathbb{I} \otimes \mathbb{I} \otimes \dots \otimes \mathbb{I} \\
+\mu^3 &= \sigma^3 \otimes \sigma^3 \otimes \sigma^+ \otimes \mathbb{I} \otimes \mathbb{I} \otimes \dots \otimes \mathbb{I} \\
+\mu^4 &= etc. \, \dots
+\end{align*}
+
+\noindent These $\mu^j$ operators obey the fermioic anticommutation relations, since $\{\sigma^j, \sigma^k \} = 2 \delta^{jk}$, and form a matrix representation of the anticommutation relation given in the Jordan-Wigner transformation.
+
+\noindent An inefficient method to construct a representation of the gamma matrices, though reducible to the above $\mu^j$ matrices, which honors the anticommutation relation, starts with the composition of the timelike gamma matrix
+\begin{equation}
+\gamma^0 = \sigma^1 \otimes \mathbb{I} .
+\end{equation}
+
+\noindent Next, we know that $\sigma^2$ anticommutes with $\sigma^1$ via $\{\sigma^j, \sigma^k \} = 2 \delta^{jk}$, and thus we construct the following, noting that to satisfy $(\gamma^j)^2 <0$, scalar multiplication by the imaginary unit $i$ is required
+\begin{equation}
+\gamma^j \equiv i \sigma^2 \otimes \sigma^j .
+\end{equation}
+
+\subsection*{The Dirac Spinor}
+
+\noindent The set of matrices $\gamma^\mu$ satisfying the anticommutation relation $\{ \gamma^\mu, \gamma^\nu \} = 2 \eta^{\mu\nu} \cdot \mathbb{I}_{n \times n}$ are called the \textbf{Dirac matrices}, and the four-component object that transforms correctly under the Lorentz group is called the \textbf{Dirac spinor}
+\begin{equation}
+\psi \to e^{-\frac{i}{2} \omega_{\mu\nu} S^{\mu\nu}} \psi
+\end{equation}
+This is the definition of the spinor in different reference frames, and defines the \textbf{spinor field} as a mapping
+\begin{equation}
+\psi: \mathbb{R}^{1,3} \to \mathbb{C}^4.
+\end{equation}
+
+\noindent Transforming as
+\begin{equation}
+\psi_a(x) = \sum_{b=0}^3 [ \Lambda_{1/2} ]_{ab} \,\, \psi_b(\Lambda^{-1}x), \,\, \Lambda \in SO(3)
+\end{equation}
+
+\noindent Where $\Lambda$ is the usual representation for the Lorentz transformation, and $\Lambda_{1/2}$ has the same representation structure and obeys the same Lie algebra of the Lorentz transformation, but different elements: the $4\times4$ matrix Lie algebra bracket $S^{\mu\nu}$ built out of the gamma matrices
+\begin{align}
+\Lambda &= e^{-\frac{i}{2} \omega_{\mu\nu} J^{\mu\nu}} \\
+\Lambda_{1/2} &= e^{-\frac{i}{2} \omega_{\mu\nu} S^{\mu\nu}}
+\end{align}
+
+\noindent Every representation of the Lorentz group can be used to build Lorentz invariant field equations, such that $\mathcal{D}\psi=0$. To build the field equations for $\psi_a(x)$, first guess and check (\textbf{Exercise}) that the Klein-Gordon equation is satisfied
+\begin{equation}
+(\partial^2 + m^2) \psi_a(x) = 0, \, \forall \, a
+\end{equation}
+
+\noindent The next guess, by Dirac, is to find a satisfactory field equation that is linear in spacetime derivatives. This requires the following identity as an auxiliary computation between the gamma matrices and the two generators, first confirmed by Dirac (\textbf{Exercise})
+\begin{equation}
+[\gamma^\mu, S^{\rho\sigma}] = (J^{\rho\sigma})^\mu_{\,\,\,\nu} \, \gamma^\nu
+\end{equation}
+
+\noindent This is reminiscient of how the four-vector transforms under the Lorentz transformation, and we motivatedly write, to first order in $\omega$
+\begin{align}
+(1+\frac{i}{2}  \omega_{\rho\sigma} S^{\rho\sigma}) \gamma^\mu (1-\frac{i}{2}  \omega_{\rho\sigma} S^{\rho\sigma}) &= (1-\frac{i}{2}  \omega_{\rho\sigma} J^{\rho\sigma})^\mu_{\,\,\,\nu} \gamma^\nu \\
+e^{\frac{i}{2} \omega_{\rho\sigma} S^{\rho\sigma}} \gamma^\mu e^{-\frac{i}{2} \omega_{\rho\sigma} S^{\rho\sigma}} &\approx (e^{-\frac{i}{2} \omega_{\rho\sigma} J^{\rho\sigma}})^\mu_{\,\,\,\nu} \gamma^\nu  \\
+\Lambda_{1/2}^{-1} \gamma^\mu \Lambda_{1/2} &= \Lambda^\mu_{\,\,\,\nu} \gamma^\nu
+\end{align}
+
+\noindent This shows that the gamma matrices transform exactly like a four-vector under the Lorentz transformation. Contracted against another vector, that transforms accordinngly, will produce another Lorentz invariant object. The differential operator $\partial_\mu$ transforms as such, making $\gamma^\mu \partial_\mu$ Lorentz invariant. \\
+
+\noindent Thus, the Lorentz invariant field equation, the Dirac equation, reads
+\begin{equation}
+(i\gamma^\mu \partial_\mu - m) \psi = 0
+\end{equation}
+
+\noindent Check the invariance of the Dirac equation by substituting the following quantities for the spinor and spacetime derivative into the Dirac equation (\textbf{Exercise})
+\begin{align}
+\psi(x) &\to \Lambda_{1/2} \psi \, (\Lambda^{-1}x) \\
+\partial_\mu &\to (\Lambda^{-1})^\nu_{\,\,\,\mu} \partial_\nu .
+\end{align}
+
+\noindent Making these subsitutions, the Dirac equation becomes
+\begin{align}
+\left( i\gamma^\mu (\Lambda^{-1})^\nu_{\,\,\,\mu}\partial_\nu - m \right) \Lambda_{1/2}\, \psi(\Lambda^{-1}x) &= 0 \\
+\Lambda_{1/2} \Lambda^{-1}_{1/2}\cdot \left( i\gamma^\mu (\Lambda^{-1})^\nu_{\,\,\,\mu}\partial_\nu - m \right) \Lambda_{1/2}\, \psi(\Lambda^{-1}x) &= 0 \\
+\Lambda_{1/2}\, \left( i\Lambda^{-1}_{1/2}\,\gamma^\mu \Lambda_{1/2} \,(\Lambda^{-1})^\nu_{\,\,\,\mu}\partial_\nu - m \right) \psi(\Lambda^{-1}x) &= 0 \\
+\Lambda_{1/2}\, \left( i\Lambda^\mu_{\,\,\,\sigma} \gamma^\sigma (\Lambda^{-1})^\nu_{\,\,\,\mu}\partial_\nu - m \right) \psi(\Lambda^{-1}x) &= 0 \\
+\Lambda_{1/2}\, \left( i\gamma^\nu \partial_\nu - m \right) \psi(\Lambda^{-1}x) &= 0 
+\end{align}
+
+\noindent Going from line 2 to 3 utilizes the fact that $(\Lambda^{-1})^\nu_{\,\,\,\mu}\partial_\nu$ is a linear operator, meaning the quantity $\Lambda^{-1}_{1/2}\,\gamma^\mu \Lambda_{1/2}$ also transforms like a four-vector and is Lorentz invariant. Going from line 4 to 5 uses the fact that $(\Lambda^{-1})^\nu_{\,\,\,\mu}\partial_\nu \, \psi(\Lambda^{-1} x)$ is a delta function. The left hand side becomes zero, and the Dirac equation is Lorentz invariant. \\
+
+\noindent The Dirac equation contains the Klein-Gordon equation
+\begin{align*}
+(i\gamma^\mu \partial_\mu - m) \psi &= 0 \\
+(-i\gamma^\nu \partial_\nu - m) \cdot (i\gamma^\mu \partial_\mu - m) \psi &= 0 \\
+(\frac{1}{2} \{ \gamma^\mu, \gamma^\nu \} \partial_\mu \partial_\nu + m^2)\psi &= 0 \\
+(\partial^\mu \partial^\nu + m^2) \psi &= 0 \\
+(\Box^2 + m^2) \psi &= 0
+\end{align*}
+
+\noindent The Dirac equation is first order in all four spacetime coordinates, and is thus a stronger condition imposed on the components of the field $\psi$.
