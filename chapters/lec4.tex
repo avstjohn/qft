@@ -1,0 +1,129 @@
+\noindent More than one quantum field theory can have the same classical field theory as an effective model, making field quantization not a well-posed problem. Developing a quantum field theory is therefore built on educated guesses.
+
+\subsection*{Canonical quantization of particles} 
+ 
+\noindent The standard approach of \textit{canonical quantization} is to begin with a classical theory and suppose $n$ classical degrees of freedom, which are used to measure the canonical coordinate pairs, \textit{position} $q_j$ and \textit{momentum} $p_j$, for each degree of freedom, such that the Poisson bracket is defined by $\{q_j, p_k \} = \delta_{jk}$. The total energy of the of the system is measured by the classical \textit{Hamiltonian}, defined by 
+\begin{equation}
+H = \sum_{j=1}^n \frac{p_j^2}{2 m} + \frac{m}{2} \sum_{j, k=1}^n q_j [\textbf{Q}]_{jk} q_k
+\end{equation}
+
+\noindent Where $\textbf{Q}$ is an $n \times n$ symmetric, positive matrix. \\
+
+\noindent For example, consider the quantum harmonic oscillator, and take the naive approach by basically putting hats on everything. This ends up working for field quantization, and yields a unitary representation of the Poincar\'e group. \\
+
+\begin{itemize}
+\item \textbf{Canonical coordinates}: $(q_j, p_j) \\ \rightarrow \textbf{Canonical coordinate operators}: (\hat{q}_j, \hat{p}_j)$ \\
+\item \textbf{Poisson bracket}: $\{ q_j, p_k \} = \delta_{jk}$ \\ $\rightarrow$ \textbf{Commutator}: $[\hat{q}_j, \hat{p}_k] = i \delta_{jk}$ \\
+\item \textbf{Hamiltonian}: $H$, as defined above \\ $\rightarrow \textbf{Hamiltonian operator}: \hat{H} = \sum_{j=1}^n \frac{\hat{p}_j^2}{2 m} + \frac{m}{2} \sum_{j, k=1}^n \hat{q}_j [\textbf{Q}]_{jk} \hat{q}_k$
+\end{itemize}
+
+\noindent To diagonalize the Hamiltonian operator, first note that since $\textbf{Q}$ is a symmetric, positive $n \times n$ matrix, there exists an orthogonal matrix $\textbf{O}$ (s.t., $\textbf{O}^T \textbf{O} = \textbf{I}$), such that $\textbf{O} \textbf{Q} \textbf{O}^T = \textbf{D}$, where $\textbf{D}$ is a diagonal matrix, where we call the diagonal elements $\{ \omega_i^2 \}_{i=1}^n$ \\
+
+\noindent Now, transform the canonical coordinates, using the orthogonal matrix, such that the correct commutation relation is still obeyed
+\begin{align}
+\hat{q}_j &= \sum_{k=1}^n [\textbf{O}]_{jk} \hat{q}'_k \\
+\hat{p}_j &= \sum_{k=1}^n [\textbf{O}]_{jk} \hat{p}'_k \\
+i \delta_{jk} &= [ \hat{q}'_j, \hat{p}'_k ]
+\end{align}
+
+\noindent Using the facts that $\textbf{O}^T = \textbf{O}^{-1}$ and $\textbf{O} \textbf{Q} \textbf{O}^T = \textbf{D}$, the Hamiltonian becomes diagonalized
+\begin{align}
+\hat{H} &= \sum_{j=1}^n \frac{\hat{p'}_j^2}{2 m} + \frac{m}{2} \sum_{j, k, l, m=1}^n \hat{q'}_l [\textbf{O}^T]_{jl} [\textbf{Q}]_{jk} [\textbf{O}^T]_{km} \hat{q'}_m \\
+\hat{H} &= \sum_{j=1}^n \frac{\hat{p'}_j^2}{2 m} + \frac{1}{2} \sum_{k=1}^n \omega_k^2 \hat{q'}_k^2 \\
+\hat{H} &= \frac{1}{2} \sum_{k=1}^n \omega_k (\hat{a}_k^\dagger \hat{a}_k + \frac{1}{2})
+\end{align}
+
+\noindent Where the annihilation and creation ladder operators that diagonalize the quantum harmonic oscillator Hamiltonian are defined as
+\begin{align}
+\hat{a}_k &= \sqrt{\frac{m \omega_k}{2}} (\hat{q}'_k + \frac{i}{m \omega_k} \hat{p}'_k) \\
+\hat{a}_k^\dagger &= \sqrt{\frac{m \omega_k}{2}} (\hat{q}'_k - \frac{i}{m \omega_k} \hat{p}'_k)
+\end{align}
+
+\subsection*{Canonical Quantization of Fields}
+
+\noindent To quantize the Klein-Gordon field, we follow the same seemingly naive approach of putting hats on everything. In this example fo quantizing a field, the continuous variable $x$ is used, in contrast to the discrete labels $j$ in the previous example of the quantum harmonic oscillator
+
+\begin{itemize}
+\item \textbf{Canonical coordinates}: $(\phi(x), \pi(x)) \\ \rightarrow \textbf{Canonical coordinate operators}: (\hat{\phi}(x), \hat{\pi}(x))$ \\
+\item \textbf{Poisson bracket}: $\{ \phi(x), \pi(y) \} = \delta^{(3)}(x-y)$ \\ $\rightarrow$ \textbf{Commutator}: $[\hat{\phi}(x), \hat{\pi}(y)] = i \delta^{(3)}(x-y)$ \\
+	\subitem Note that this is the \textit{equal time Poisson bracket}, such that $(x-y)$ is the spatial three-vector.
+	\subitem Also note that this commutator is strange,  as it is comprised of "two self-adjoint operators and something's that not even a function" \\
+\item \textbf{Hamiltonian}: $H_{KG} = \frac{1}{2} \int d^3x \,\, \left( \pi^2(x) + (\nabla \phi(x))^2 + \frac{1}{2} m^2 \phi^2(x) \right)$ \\ $\rightarrow \textbf{Hamiltonian operator}: \hat{H}_{KG} = \frac{1}{2} \int d^3x \,\, \left( \hat{\pi}^2(x) + (\nabla \hat{\phi}(x))^2 + \frac{1}{2} m^2 \hat{\phi}^2(x) \right)$
+\end{itemize}
+
+\noindent Essentially, replace discrete sums with continuous integrals, by switching to a continuous label $j \rightarrow x$ and a continuous dynamical variable $q_j \rightarrow q_x=\phi(x)$. Solving the quantum Hamiltonian, by analogy of the canonical quantization of particles, should be as simple as creating the analog of the $\textbf{Q}$ matrix and its diagonalization. \\
+
+\noindent  Replacing sums by integrals allows the full diagonalization of $\textbf{Q}$, and, therefore, the full diagonalization of the Hamiltonian $\hat{H} = \hat{H}_{KG}$, but this does not yet yield a unitary representation of the Poincar\'e group or a valid relativistic quantum field theory. Diagonalizing the Hamiltonian only quantizes a one-parameter subgroup of the Poincar\'e group. The conserved currents, charges, and operators obeying the correct Lie algebra are still needed for a relativistic quantum field theory. \\
+
+\subsubsection*{Diagonalization of the quantum field theory}
+
+\noindent The diagonalization of a field theory begins with emergence of the \textit{Fourier transform}. Replace sums with integrals, and, since the matrix elements are described by two numbers, let's define a continuous function in two variables $K(x,y)$
+
+\begin{equation}
+\hat{q}_j = \sum_k [\textbf{O}]_{jk} \hat{q}'_k \,\,\,\, \rightarrow \,\,\,\, \hat{\phi}(x) = \int d^3 y \,\, K(x, y) \hat{\phi}(y)
+\end{equation}
+
+\noindent Where $K(x,y)$ is the \textit{kernel} of the Fourier transform. \\
+
+\noindent Using the Fourier transform is motivated by certain features of symmetric matrices. Consider the \textit{circulant} matrix, a type of Toeplitz matrix where each successive column is a cyclic permutation of the previous column, initialized by the first column vector, and has the form as an $n \times n$ matrix 
+
+\begin{equation}
+\begin{bmatrix} 
+ c_0 & c_{n-1} & \dots & c_2 & c_1 \\
+ c_1 & c_0 & c_{n-1} &  & c_2 \\
+ \vdots & c_1 & c_0 &  \ddots & \vdots \\
+ c_{n-2} &  & \ddots &  \ddots & c_{n-1} \\
+ c_{n-1} & c_{n-2} & \dots &  c_1 & c_0 
+\end{bmatrix}.
+\end{equation} \\
+
+\noindent These matrices are diagonalized via the discrete Fourier transform, which is an $n \times n$ unitary matrix, though not orthogonal and may have complex entries
+
+\begin{equation}
+\textbf{U} = \frac{1}{\sqrt{n}} 
+\begin{bmatrix} 
+ 1 & 1 & 1 & \dots &  \\
+ 1 & \mu & \mu^2 & \dots &  \\
+ 1 & \mu^2 & \mu^4 &   & \vdots \\
+ \vdots & \vdots & &  \mu^{jk} &  \\
+  &  & \dots &  & \mu^{nn} 
+\end{bmatrix}
+\end{equation}
+
+
+\noindent Where $\mu = e^{\frac{2 \pi i}{n}}$ is the $n^{th}$ roots of unity. The elements of the discrete Fourier transform, therefore, have the form $\frac{1}{\sqrt{n}} e^{\frac{2\pi i j k}{n}}$. Compare this to the continuous Fourier transform kernel function $K(x,y) = \frac{1}{2\pi} e^{ixy}$. \\
+
+\noindent For transformations between position and momentum space, make the guess that the Fourier transform that will diagonalize our quantized Klein-Gordon Hamiltonian has the form 
+
+\begin{equation}
+\hat{\phi}(x) = \int \frac{d^3 p}{(2\pi)^3} e^{i p \cdot x} \hat{\phi}_p(p).
+\end{equation}
+
+\noindent Where $\hat{\phi}_p(p)$ is the momentum space wavefunction, and is not Hermitian, such that $\hat{\phi}_p(p)^\dagger = \hat{\phi}_p(-p)$. To check if the guess is correct, apply $\hat{H}_{KG}$ to the transform defined above, and observe whether it is diagonalized or not. \\
+
+\noindent As in the discrete case of diagonalization, we construct ladder operators
+
+\begin{align}
+\hat{\phi}(x) &= \int \frac{d^3 p}{(2 \pi)^3} \frac{1}{\sqrt{2 \omega_p}} \left( \hat{a}_p e^{ip \cdot x} + \hat{a}_p^\dagger e^{-ip \cdot x} \right) \\
+\hat{\pi}(x) &=-i  \int \frac{d^3 p}{(2 \pi)^3} \sqrt{\frac{\omega_p}{2}} \left( \hat{a}_p e^{ip \cdot x} - \hat{a}_p^\dagger e^{-ip \cdot x} \right) \\
+&\omega_p = \sqrt{ |p|^2 + m^2}
+\end{align}
+
+\noindent Check the commutation relation
+\begin{align}
+[ \hat{\phi}(x), \hat{\pi}(x') ] &= \frac{-i}{2} \int \frac{d^3 p d^3 p'}{(2 \pi)^6} \sqrt{\frac{\omega_{p'}}{\omega_p}} \left( [\hat{a}_{-p}^\dagger, \hat{a}_{p'}] - [\hat{a}_p, \hat{a}_{-p'}^\dagger] \right) e^{i(p \cdot x+p' \cdot y)} \\
+& \,\,\,\, \,\,\,\, \,\,\,\, \,\,\,\, \,\,\,\, \left( [\hat{a}_p, \hat{a}_{p'}^\dagger] = (2\pi)^3 \delta^{(3)}(p-p') \cdot \mathbb{I} \right) \\
+ &= i \delta^{(3)}(x-y) 
+\end{align}
+
+\noindent Making this substitution, the quantum Klein-Gordon Hamiltonian is diagonalized
+
+\begin{align}
+\hat{H}_{KG} &= \int d^3 x \int \frac{d^3 p d^3 p'}{(2 \pi)^6} e^{i(p+p') \cdot x} ( \frac{-1}{4} \sqrt{\omega_p \omega_{p'}} (\hat{a}_p - \hat{a}_{-p}^\dagger)(\hat{a}_{p'} - \hat{a}_{-p'}^\dagger) \\
+&\,\,\,\, \,\,\,\, + \frac{-pp' + m^2}{4 \sqrt{\omega_p \omega_{p'}}} (\hat{a}_p + \hat{a}_{-p}^\dagger)(\hat{a}_{p'} + \hat{a}_{-p'}^\dagger) ) \\
+&= \int \frac{d^3 p}{(2\pi)^3} \omega_p (\hat{a}_p^\dagger \hat{a}_p + \frac{1}{2} [\hat{a}_p, \hat{a}_p^\dagger]) \\
+&= \int \frac{d^3 p}{(2\pi)^3} \omega_p (\hat{a}_p^\dagger \hat{a}_p + \frac{1}{2} \delta_{pp} \cdot \mathbb{I}) \\
+&\cong \int \frac{d^3 p}{(2\pi)^3} \omega_p \hat{a}_p^\dagger \hat{a}_p
+\end{align}
+
+\noindent Where the infinite absolute energy shift is tossed to get the last line, since we only measure energy differences, and $\hat{H}_{KG}$ is diagonalized!

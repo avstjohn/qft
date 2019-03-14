@@ -1,0 +1,134 @@
+\noindent By analogy to the classical Klein-Gordon equation and Hamiltonian, a model for the (equal time, $t=0$) quantum Klein-Gordon Hamiltonian was constructed and diagonalized, via (continuous) Fourier transform and ladder operators, 
+\begin{align}
+\hat{H}_{KG} &= \frac{1}{2} \int d^ 3 x \,\, \hat{\pi}^2(x) + (\nabla \hat{\phi}(x))^2 + m^2 \hat{\phi}^2(x) \\
+\hat{H}_{KG} &= \int \frac{d^3 p}{(2\pi)^3} \,\, \omega_p \hat{a}_p^\dagger \hat{a}_p
+\end{align}
+
+\noindent Where the zeroth, time, component of the momentum 4-vector $\textbf{p}_0 = \omega_p = \sqrt{|p|^2 + m^2}$ depends on the spatial 3-vector $p$ and the constant $m^2$. \\
+
+\noindent This yields a representation of a one parameter subgroup of the Poincar\'e group, namely $U((t,0,0,0))=e^{-it\hat{H}_{KG}}$, but a true relativistic quantum field theory requires the full (projective) unitary representation of the Poincar\'e group, including generators for all possible transformation: 10 Lorentz + 4 translation = 14 total transformations in the Poincar\'e group. \\
+
+\noindent To quantize, put hats on the conserved charges identified by Noether's theorem: $Q_\alpha \rightarrow \hat{Q}_\alpha$. First, consider the generators of spatial translations, namely momentum. Recall that the classical conserved current $T^{0j}$ gives these, which is quantized: $p^j \rightarrow \hat{p}^j$.
+
+\noindent Recall the classical energy-momentum tensor for the Klein-Gordon field
+\begin{equation}
+T^\mu_{\,\,\,\, \nu} |_{KG} = \partial^\mu \phi \partial_\nu \phi - \delta^\mu_{\,\,\,\, \nu} (\partial^\mu \phi \partial_\mu \phi - \frac{1}{2} m^2 \phi^2)
+\end{equation}
+
+\noindent From this, quantize and calculate the conserved charge for temporal translations, namely the Hamiltonian, and conserved charges for spatial translations, namely linear momentum.
+
+\begin{align}
+\hat{H}_{KG} &= \int d^3 x \,\, \hat{T}^{00} = \int \frac{d^3 p}{(2\pi)^3} \omega_p \hat{a}_p^\dagger \hat{a}_p\\
+\hat{p}^j &= \int d^3 x \,\, \hat{T}^{0j} = \int d^3 x \,\, \hat{\dot{\phi}} \partial_j \hat{\phi} = \int d^3 x \,\, \hat{\pi} \partial_j \hat{\phi} \hat{p}^j = \int \frac{d^3 p}{(2\pi)^3} \,\, p^j \hat{a}_p^\dagger \hat{a}_p
+\end{align}
+
+\noindent Note that there are several choices for the ordering of $\hat{\pi}$ and $\hat{\phi}$ in the expression of $\hat{p}^j$ matters, and here is written the one that works. \\
+
+\noindent Now check that the four-vector obeys the commuation relations, using the diagonalized momenta $\hat{p}^j = \int \frac{d^3 p}{(2\pi)^3} \,\, p^j \hat{a}_p^\dagger \hat{a}_p$
+\begin{align}
+\{Q_\alpha, Q_\beta\}_{PB} = f_{\alpha \beta}^{\,\,\,\, \gamma} Q_\gamma &\rightarrow [\hat{Q}_\alpha, \hat{Q}_\beta] = i f_{\alpha \beta}^{\,\,\,\, \gamma} Q_\gamma \\
+\{p^\mu, p^\nu\}_{PB} = 0 &\rightarrow [\hat{p}^\mu, \hat{p}^\nu] = 0
+\end{align}
+
+\noindent This confirms a projective unitary representation of the \textit{translation subgroup} of the Poincar\'e group, and now construct the explicit Hilbert space as a Fock space, since the operators are quantized and diagonalized via ladder operators. \\
+
+\noindent To construct a Fock space, begin by defining the vacuum state, highest weight vector in the language of representation theory,  $\ket{\Omega}$ such that the annihilation operator will completely obliterate it: $\hat{a}_{\textbf{p}} \ket{\Omega} = 0, \,\, \forall \, p$, where $\textbf{p}=(\omega_p, p)$. \\
+
+\noindent The Hilbert space would then be generated via all finite linear combinations of vectors of the form 
+$\ket{\textbf{p}_1 \textbf{p}_2 \dots \textbf{p}_n} = \hat{a}_{\textbf{p}_1}^\dagger \hat{a}_{\textbf{p}_2}^\dagger \dots \hat{a}_{\textbf{p}_n}^\dagger \ket{\Omega}$, but there is a technical issue of the $n$-dimensional momentum state vectors actually being improper vectors that are not normalizable, such that the scalar product needed to finish the defintion of the Hilbert space will always blow up to infinity, since $\braket{p|q} = (2 \pi)^3 \delta^{(3)}(p-q)$. These states are also not preparable by experiment, since the state vector $\ket{\textbf{p}_1 \, \textbf{p}_2 \dots \textbf{p}_n}$ represents $n$ delta functions in position-momentum space.  \\
+
+\noindent To create a normalizable state that can be used to define the Hilbert space, "smear out" the momentum states by defining a smooth ($L^2$) function $\psi$, which must be Lorentz invariant, though the invariance it is not obvious
+\begin{equation}
+\ket{\psi} = \int \frac{d^3 p}{(2\pi)^3} \psi(\textbf{p}) \ket{\textbf{p}} = \int \frac{d^3 p}{(2\pi)^3} \psi(\textbf{p}) \hat{a}_p^\dagger \ket{\Omega}.
+\end{equation}
+
+\noindent Now, introduce a method to normalize these improper vectors to a new set of improper vectors that are manifestly, more obviously, Lorentz invariant, and offer a nice parameterization to make many calculations easier. \\
+
+\noindent Consider the projection operator onto a single particle state, and note that the integrand and the integral (volume element) are both separately not invariant
+
+\begin{equation}
+\mathbb{I}_{single} = \int \frac{d^3 p}{(2\pi)^3} \ket{p}\bra{p}.
+\end{equation}
+
+\noindent Enter a reference frame where this state is invariant by multiplying by one
+
+\begin{equation}
+\mathbb{I}_{single} = \int \frac{d^3 p}{(2\pi)^3 X(\textbf{p})} X(\textbf{p}) \ket{p}\bra{p}.
+\end{equation}
+
+\noindent Where $X(\textbf{p})$ is a mystery factor to make the integral and integrand invariant. \\
+
+\noindent \textbf{Claim:} $X(\textbf{p}) = \frac{2 \omega_p}{(2\pi)^3}$, where $p$ here must be the momentum 4-vector, since we are using the zeroth, or time, component $p_0 = \omega_p = \sqrt{|p|^2 + m^2}$. \\
+
+\noindent \textbf{Proof:} \\
+
+\noindent First, observe that $\int d^3 p$ is not Poincar\'e invariant, but $\int d^4 p$ is, such that $\int d^4 p = \int d^4 p'$, where $p'^\mu = \Lambda^\mu_{\,\,\nu} p^\nu + a^\mu$ is a Poincar\'e transformation, and $\Lambda^\mu_{\,\,\nu}$ is the Jacobian of the transformation, and $det(\Lambda)= \pm 1$, $\forall \, \Lambda$ unitary transformation. \\
+
+\noindent Now notice that $p^\mu p_\mu = const. = m^2$ (4-vector length invariant), whose solution is the dispersion relation for a single relativistic particle, and has two branches $\textbf{p}_0 = \omega_{p} = \pm \sqrt{|p|^2 + m^2}$, where $|p|$ is the norm of the momentum (spatial) 3-vector.  \\
+
+\noindent Restrict to the positive upper branch, and consider the Poincar\'e invariant quantity
+
+\begin{equation}
+\int d^4 p \,\, \delta(\textbf{p}_0^2 - |p|^2 - m^2)|_{\textbf{p}_0>0} = \int \frac{d^3 p}{2\textbf{p}_0}|_{\textbf{p}_0=\omega_{p}}.
+\end{equation}
+
+\noindent Therefore, to make the single particle state projection operator from above Poncar\'e invariant, compare terms in the line above to the "mystery factor" expression, proving that $X(\textbf{p}) = \frac{2 \omega_p}{(2\pi)^3}$. \\
+
+\noindent Thus, the "delta normalization" of 3-vectors is defined via 
+
+\begin{equation}
+2 \omega_{p} \delta^{(3)} (p-q).
+\end{equation}
+
+\noindent And the renormalized, Lorentz invariant momentum 4-vector is built as 
+
+\begin{equation}
+\ket{\textbf{p}} = \sqrt{2 \omega_{p}} \ket{p} = \sqrt{2 \omega_{p}} \hat{a}_{p}^\dagger \ket{\Omega}.
+\end{equation}
+
+\noindent And the Lorentz invariant four-length comes out to be
+
+\begin{equation}
+\braket{\textbf{p}|\textbf{q}} = 2 (2 \pi)^3 \omega_{p} \delta^{(3)} (p - q). 
+\end{equation}
+
+\noindent Now, to express the operators in terms of the Fock vector space we build on top of the vectors $\ket{\textbf{p}}$, and determine the action of the generator of spacetime translations, the 4-momentum operator, $\hat{p}^\mu$ on the Hilbert space of momentum states (improper vectors) $\ket{\textbf{p}_1 \, \textbf{p}_2 \dots \textbf{p}_n}$. \\
+
+\noindent This requires some commutation relations with the ladder operator $\hat{a}_{\textbf{p}}$ in the following lemma. \\
+
+\noindent \textbf{Lemma:} $[ \hat{H}_{KG}, \hat{a}_p ] = - \omega_{p} \hat{a}_{p}$ and $[ \hat{p}^j, \hat{a}_\textbf{p} ] = p^j \hat{a}_p $. \\
+
+\noindent Next follows the corollary, demonstrating that the operator $\hat{p}^\mu$ is \textit{diagonalized} in this Hilbert space basis, such that the 4-momentum operator annihilates the vacuum state: $\hat{p}^\mu \ket{\Omega} = 0$. \\
+
+\noindent \textbf{Corollary:} $\hat{p}^\mu \ket{\textbf{p}_1 \textbf{p}_2 \dots \textbf{p}_n} = ( \sum_{j=1}^n p_j^{\, \mu} ) \ket{\textbf{p}_1 \textbf{p}_2 \dots \textbf{p}_n} $. \\
+
+\subsection*{Lorentz Invariance in the Heisenberg Picture}
+
+\noindent So, this operator allows unitary quantum spacetime translations, in the Schr\"odinger picture, via the exponentiated Hermitian operator quantity $U(a) = e^{-i a_\mu \hat{p}^\mu}$. \\
+
+\noindent Now, to manifest any symmetries that may have not been shown in the Schr\"odinger picture, explore Lorentz invariance in the Heisenberg picture, which is also later helpful in perturbation theory. Real space calculations, at a specific spacetime location (e.g., $(t,\textbf{x})$) are also much easier in the Heisenberg picture than in the "spread-out" Fourier transformed Schr\"odinger picture.\\
+
+\noindent To enter the Heisenberg picture, where time is explicitly included, an operator $\mathcal{O}$ is unitarily transformed, and its time evolution is determined via the Hamiltonian in the Heisenberg equation of motion
+\begin{align}
+\mathcal{O}_H &= e^{i \hat{H} t} \mathcal{O} e^{-i \hat{H} t} \\
+\frac{d \mathcal{O}_H}{d t} &= i [ \hat{H}, \mathcal{O}_H ].
+\end{align}
+
+\noindent In the Heisenberg picture, the commutation relations for the canonical position and momentum operators become
+\begin{align}
+[ \hat{\phi}_H(t, x), \hat{\phi}_H(t, y) ] &= [ \hat{\pi}_H(t, x), \hat{\pi}_H(t, y) ] = 0 \\
+[ \hat{\phi}_H(t, x), \hat{\pi}_H(t, y) ] &= i \delta^{(3)}(x - y).
+\end{align}
+
+\noindent Evolve the canonical position and momentum operators in time via the (spatially localized) Heisenberg equation of motion
+\begin{align}
+\frac{d \hat{\phi}(t, x)}{d t} &= i [ \hat{H}_{KG}, \hat{\phi}(t, x)] = \hat{\pi}(t, x) \\
+\frac{d \hat{\pi}(t, x)}{d t} &= i [ \hat{H}_{KG}, \hat{\pi}(t, x)] = \nabla^2 \hat{\phi}(t, x) + m^2 \hat{\phi}(t, x).
+\end{align}
+
+\noindent Where the second equality is gotten by using integration-by-parts. Substitute the first equality for $\hat{\pi}(t, x)$ into the second equality, and combine the second derivatives of space and time, to show that the canonical field position operator obeys the Klein-Gordon equation
+\begin{equation}
+(\partial^\mu \partial_\mu + m^2 ) \hat{\phi}(t, x) = 0.
+\end{equation}
+
+\noindent This completes the development of the unitary representation of spacetime translations. Rotations and boosts are yet to be integrated into the unitary representation of the Poincar\'e group.
