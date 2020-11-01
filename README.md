@@ -1,5 +1,5 @@
 # qft
-Lecture notes directly transcribed from course (Youtube videos) given by by Dr. Tobias Osborne. (Most) Exercises are noted throughout notes.
+Lecture notes directly transcribed from course (Youtube videos) given by Dr. Tobias Osborne. (Most) Exercises are noted throughout notes.
 
 https://www.youtube.com/playlist?list=PLDfPUNusx1EpRs-wku83aqYSKfR5fFmfS
 
